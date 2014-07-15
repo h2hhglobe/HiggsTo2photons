@@ -22,6 +22,7 @@
 
 class GlobeAnalyzer;
 
+/** Calculates quantities related to reconstructed muons to be stored in the output ntuple. */ 
 class GlobeMuons {
  public:
   
