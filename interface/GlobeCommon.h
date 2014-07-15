@@ -33,6 +33,7 @@ class GlobeCommon {
   Float_t weight;
   Float_t pthat;
   bool doParticleGun;
+  bool doFastSim;
 
   //CHECK ADD Something like MC event type? For soups and so on, such as:
   //CHECK Int_t typ_ev; 

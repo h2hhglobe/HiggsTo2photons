@@ -6,6 +6,7 @@
 GlobeCommon::GlobeCommon(const edm::ParameterSet& iConfig) {
   generatorColl = iConfig.getParameter<edm::InputTag>("GeneratorColl");
   doParticleGun =iConfig.getParameter<bool>("doParticleGun");
+  doFastSim =iConfig.getParameter<bool>("doFastSim");
 }
 
 void GlobeCommon::defineBranch(GlobeAnalyzer* ana) {
@@ -56,7 +57,7 @@ bool GlobeCommon::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
       }
     }
     
-    if (doParticleGun)
+    if (doParticleGun || doFastSim)
       weight = -1; 
     else
       weight = event->weights().front();
