@@ -773,4 +773,39 @@ void GlobeAnalyzer::fillTree() {
   tree2->Fill();
 }
 
+//----------------------------------------------------------------------
+bool GlobeAnalyzer::hasSameSignLeptonPair()
+{
+  unsigned numPositiveLeptons = 0, numNegativeLeptons = 0;
+
+  if (std_electrons != NULL)
+  {
+    for (int i = 0; i < std_electrons->el_n; ++i)
+    {
+      if (std_electrons->el_charge[i] > 0)
+        ++numPositiveLeptons;
+      else if (std_electrons->el_charge[i] < 0)
+        ++numNegativeLeptons;
+    } // loop over electrons
+  }
+
+  // global_muons seems never to be used...
+  // (in fact, we actually just want global muons probably...)
+  if (muons != NULL)
+  {
+    for (int i = 0; i < muons->mu_n; ++i)
+    {
+      if (muons->mu_charge[i] > 0)
+        ++numPositiveLeptons;
+      else if (muons->mu_charge[i] < 0)
+        ++numNegativeLeptons;
+    } // loop over muons
+  }
+
+  // return true if at least one same sign pair found
+  return (numPositiveLeptons >= 2) || (numNegativeLeptons >= 2);
+}
+
+//----------------------------------------------------------------------
+
 DEFINE_FWK_MODULE(GlobeAnalyzer);

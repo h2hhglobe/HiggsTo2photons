@@ -143,6 +143,8 @@ private:
   void endLuminosityBlock(const edm::LuminosityBlock &, const edm::EventSetup &);
   void endJob();
 
+  bool hasSameSignLeptonPair();
+
   std::string fileName;
       
   TFile *file;
