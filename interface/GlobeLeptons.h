@@ -15,6 +15,7 @@
 
 class GlobeAnalyzer;
 
+/** class for keeping summary information about reconstructed electrons, muons and photons */
 class GlobeLeptons {
   public:
 
