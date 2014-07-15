@@ -553,7 +553,10 @@ void GlobeAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSe
   if(debug_level > 2) 
     std::cout << "GlobeAnalyzer: selectorbits = " << selector_bits << std::endl;
   
-  if (selector_bits > 0) {
+  // AH: special for same sign leptons analysis
+  if (hasSameSignLeptonPair())
+  {
+    //if (selector_bits > 0) {
     sel_events++;
     
     if(debug_level > 2) 
